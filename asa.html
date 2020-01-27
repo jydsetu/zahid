@@ -1,0 +1,63 @@
+
+<!doctype html>
+ <html> 
+ <head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta charset="utf-8">
+ <link rel="stylesheet" type="text/css" href="banglafont.css">
+</head> 
+  <body>
+             <h1>বাংলাদেশ বিষয়াবলি</h1>
+    <form id="quiz" name="quiz">
+    <p>বাংলাদেশের আয়তন কত ?</p>
+    <input type="text" id="mc" name="question1"><br><br>
+    
+    <p>বাংলাদেশের স্বাধীনতা দিবস কবে ?</p>
+    <input type="radio" id="mc" name="question2" value="true">1971<br>
+    <input type="radio" id="mc" name="question2" value="false">1981<br><br>
+    
+    <p>বাংলাদেশের বিজয় দিবস কবে ?</p>
+    <input type="radio" id="mc" name="question3" value="img">26 মার্চ<br>
+    <input type="radio" id="mc" name="question3" value="src">25 মার্চ<br>
+    <input type="radio" id="mc" name="question3" value="href">14 ডিসেম্বর<br>
+    <input type="radio" id="mc" name="question3" value="alt">16 ডিসেম্বর<br>
+    </form>
+    <div id="after_submit"></div>
+    <p id="messages"></p>
+    <p id="number_correct"></p>
+    
+    <input id="button" type="button" value="SUBMIT" onclick="check();">
+    
+    <script>
+    function check(){  
+    var question1=document.quiz.question1.value;
+    var question2=document.quiz.question2.value;
+    var question3=document.quiz.question3.value;
+    var correct=0;
+    if (question1=="147570"){
+    correct++;
+    }
+    if (question2=="true"){
+    correct++;
+    }  
+    if (question3=="img"){
+    correct++;
+    }
+    var messages=["Great job!","That's just okay!","You really need to do better"];
+    var range;
+    if(correct<1){
+    range=2;
+    }  
+    if(correct>0&&correct<3){
+    range=1;
+    }  
+    if(correct>2){
+    range=0;
+    }
+    document.getElementById("after_submit").style.visibility="visible";
+    document.getElementById("messages").innerHTML=messages[range];
+    document.getElementById("number_correct").innerHTML="&rarr;you got "+correct+" correct.";
+    }
+    </script>
+  </body>
+   </html>
